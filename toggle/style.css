@@ -1,0 +1,55 @@
+/* 全ての要素に対する基本スタイル */
+* {
+    margin: 0; /* 外側余白（マージン）をゼロに設定 */
+    padding: 0; /* 内側余白（パディング）をゼロに設定 */
+    box-sizing: border-box; /* 要素のサイズ計算をボーダーとパディングを含める形式に変更 */
+}
+
+/* body 要素のスタイル */
+body {
+    padding: 64px; /* すべての側面に64ピクセルのパディングを設定 */
+}
+
+/* カスタムトグルスイッチ（チェックボックス）のスタイル */
+input.toggle_no_label {
+    width: 80px; /* 幅を80ピクセルに設定 */
+    height: 40px; /* 高さを40ピクセルに設定 */
+    appearance: none; /* ブラウザのデフォルトスタイルを無効にする */
+    /* outline: none; コメントアウトされているが、フォーカス時のアウトラインを無効にするために使用される */
+    background: #919191; /* 背景色を灰色に設定 */
+    border-radius: 24px; /* 角を丸くする */
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2); /* 内側に影を設定 */
+    position: relative; /* 子要素の絶対位置指定の基点となる */
+}   
+
+/* トグルスイッチのスライダー部分のスタイル */
+input.toggle_no_label::before {
+    content: ""; /* 空の内容 */
+    position: absolute; /* 親要素に対して絶対位置指定 */
+    top: 0; /* 上端からの位置 */
+    left: 0; /* 左端からの位置 */
+    width: 40px; /* 幅を40ピクセルに設定 */
+    height: 40px; /* 高さを40ピクセルに設定 */
+    border-style: solid; /* ボーダーのスタイルを実線に設定 */
+    border-width: 1px; /* ボーダーの太さを1ピクセルに設定 */
+    border-color: #909090; /* ボーダーの色を灰色に設定 */
+    background: #f1f1f1; /* 背景色を淡い灰色に設定 */
+    border-radius: 24px; /* 角を丸くする */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 影を設定 */
+    transform: scale(1.05); /* サイズをわずかに大きくする */
+    transition: 0.15s; /* トランジションの期間を設定 */
+}
+
+/* チェックボックスがチェックされた時のスライダーのスタイル */
+input.toggle_no_label:checked::before {
+    left: 40px; /* スライダーを右に40ピクセル移動 */
+    border-style: solid; /* ボーダーのスタイルを実線に設定 */
+    border-width: 1px; /* ボーダーの太さを1ピクセルに設定 */
+    border-color: #c0c0c0; /* ボーダーの色を淡い灰色に設定 */
+    background: #fafafa; /* 背景色を非常に淡い灰色に設定 */
+}
+
+/* チェックボックスがチェックされた時の背景色 */
+input.toggle_no_label:checked {
+    background: #bed; /* 背景色を淡い青色に設定 */
+}

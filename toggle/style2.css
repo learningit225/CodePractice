@@ -1,0 +1,56 @@
+/* トグルスイッチのチェックボックス（透明でクリック可能な部分） */
+.toggle_input {
+    position: absolute; /* 親要素（.toggle_button）に対して絶対位置指定 */
+    left: 0; /* 左端からの位置 */
+    top: 0; /* 上端からの位置 */
+    width: 100%; /* 親要素の幅に合わせて拡張 */
+    height: 100%; /* 親要素の高さに合わせて拡張 */
+    z-index: 5; /* 他の要素より前面に表示 */
+    opacity: 0; /* 要素を透明にして見えなくする */
+    cursor: pointer; /* マウスカーソルが上にある時にポインタ形状にする */
+}
+
+/* トグルスイッチの外観（背景となる部分） */
+.toggle_label {
+    width: 75px; /* 幅 */
+    height: 35px; /* 高さ */
+    background: #ccc; /* 背景色（灰色） */
+    position: relative; /* 子要素に対する相対位置指定の基点として機能 */
+    display: inline-block; /* インラインブロック要素として表示 */
+    border-radius: 40px; /* 角を丸める */
+    transition: 0.4s; /* 背景色の変更などの遷移を滑らかにする */
+    box-sizing: border-box; /* 幅と高さの計算にパディングとボーダーを含める */
+}
+
+/* トグルスイッチのスライダー部分 */
+.toggle_label:after {
+    content: ""; /* 疑似要素の内容（空） */
+    position: absolute; /* .toggle_label に対して絶対位置指定 */
+    width: 35px; /* 幅 */
+    height: 35px; /* 高さ */
+    border-radius: 100%; /* 完全な円形 */
+    left: 0; /* 左端からの位置 */
+    top: 0; /* 上端からの位置 */
+    z-index: 2; /* 他の要素の後ろに表示 */
+    background: #fff; /* 背景色（白） */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* 影を追加 */
+    transition: 0.4s; /* 位置の変更などの遷移を滑らかにする */
+}
+
+/* チェックボックスがチェックされた時のトグルスイッチの背景色 */
+.toggle_input:checked + .toggle_label {
+    background-color: #4BD865; /* 背景色を緑色に変更 */
+}
+
+/* チェックボックスがチェックされた時のスライダーの位置 */
+.toggle_input:checked + .toggle_label:after {
+    left: 40px; /* スライダーを右に移動 */
+}
+
+/* トグルボタン全体をラップするコンテナ */
+.toggle_button {
+    position: relative; /* 子要素に対する相対位置指定の基点として機能 */
+    width: 75px; /* 幅 */
+    height: 35px; /* 高さ */
+    margin: auto; /* 中央揃え */
+}
